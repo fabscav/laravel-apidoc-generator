@@ -8,6 +8,7 @@ use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseTagStrategy;
 use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseCallStrategy;
 use Mpociot\ApiDoc\Tools\ResponseStrategies\ResponseFileStrategy;
 use Mpociot\ApiDoc\Tools\ResponseStrategies\TransformerTagsStrategy;
+use Mpociot\ApiDoc\Tools\ResponseStrategies\ResourceTagStrategy;
 
 class ResponseResolver
 {
@@ -17,6 +18,7 @@ class ResponseResolver
     public static $strategies = [
         ResponseTagStrategy::class,
         TransformerTagsStrategy::class,
+        ResourceTagStrategy::class,
         ResponseFileStrategy::class,
         ResponseCallStrategy::class,
     ];
