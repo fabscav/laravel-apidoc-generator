@@ -7,6 +7,7 @@ namespace Mpociot\ApiDoc\Tools\ResponseStrategies;
 use Illuminate\Routing\Route;
 use Mpociot\Reflection\DocBlock\Tag;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
 
 class ResourceTagStrategy
 {
@@ -68,7 +69,7 @@ class ResourceTagStrategy
      */
     private function getClassToBeTransformed(array $tags)
     {
-        $modelTag = array_first(array_filter($tags, function ($tag) {
+        $modelTag = Arr::first(array_filter($tags, function ($tag) {
             return ($tag instanceof Tag) && strtolower($tag->getName()) == 'resourcemodel';
         }));
 
@@ -125,6 +126,6 @@ class ResourceTagStrategy
             })
         );
 
-        return array_first($resourceTags);
+        return Arr::first($resourceTags);
     }
 }
