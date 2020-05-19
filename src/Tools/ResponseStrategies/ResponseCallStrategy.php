@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
 use Mpociot\ApiDoc\Tools\Utils;
 use Mpociot\ApiDoc\Tools\Traits\ParamHelpers;
+use Illuminate\Support\Str;
 
 /**
  * Make a call to the route and retrieve its response.
@@ -326,7 +327,7 @@ class ResponseCallStrategy
         $prefix = 'HTTP_';
         foreach ($headers as $name => $value) {
             $name = strtr(strtoupper($name), '-', '_');
-            if (! starts_with($name, $prefix) && $name !== 'CONTENT_TYPE') {
+            if (! Str::startsWith($name, $prefix) && $name !== 'CONTENT_TYPE') {
                 $name = $prefix.$name;
             }
             $server[$name] = $value;
